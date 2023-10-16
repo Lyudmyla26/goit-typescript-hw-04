@@ -1,14 +1,10 @@
-import React, { useEffect, useRef, ReactNode, FunctionComponent } from "react";
-
-// Опишіть Props
+import React, { useEffect, useRef } from "react";
 interface Props {
-  children: React.ReactNode;
+  children: React.ReactElement;
   onContentEndVisible: () => void;
 }
-export const Observer: FunctionComponent<Props> = ({
-  children,
-  onContentEndVisible,
-}) => {
+// Опишіть Props
+export function Observer({ children, onContentEndVisible }: Props) {
   // Вкажіть правильний тип для useRef зверніть увагу, в який DOM елемент ми його передаємо
   const endContentRef = useRef<HTMLDivElement | null>(null);
 
@@ -44,4 +40,4 @@ export const Observer: FunctionComponent<Props> = ({
       <div ref={endContentRef} />
     </div>
   );
-};
+}
